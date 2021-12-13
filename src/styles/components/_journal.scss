@@ -1,0 +1,141 @@
+.journal__main-content {
+    display: flex;
+}
+
+.journal__sidebar {
+    background-color: $dark-blue;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 220px;
+    height: 100vh;
+}
+
+.journal__sidebar-navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    width: 100%;
+}
+
+.journal__profile{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 30px;
+    width: 100%;
+
+    .profile-icon {
+        width: 24px;
+        margin-right: 8px;
+    }
+}
+
+.journal__new-entry {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+    width: 100%;
+    transition: ease-out 150ms; 
+    border-radius: 8px;
+    height: 24px;
+
+    .icon-calendar {
+        width: 24px;
+        margin-right: 8px;        
+    }
+
+    &:hover {
+        transition: ease-in 300ms;
+        background-color: lighten($color: $dark-blue, $amount: 10);
+    }
+
+}
+
+.close-container {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    transition: ease-out 150ms;    
+
+    .close-icon {
+        width: 24px;
+        margin-right: 8px;
+    }
+
+    button {
+        font-size: 1.1rem;
+    }
+
+    &:hover {
+        transition: ease-in 300ms;
+        background-color: $danger;
+    }
+}
+
+.journal__entries {
+    flex: 1 1 auto;
+    margin-top: 30px;
+    overflow-y: scroll;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.journal__entry {
+ 
+    background-color: $white;
+    border-radius: 4px;
+    color: darken($color: $dark-blue, $amount: 20);
+    display: flex;
+    margin-bottom: 10px;
+    overflow: hidden;
+    height: 70px;
+
+    
+    .journal__entry-picture {
+        height: 100%;
+        width: 100px;
+    }
+
+    .journal__entry-body {
+        padding: 10px;
+
+        .journal__entry-title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .journal__entry-content {
+            font-size: 10px;
+        }
+    }
+
+    .journal__entry-date-box {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px;
+        font-size: 12px;
+
+        .calendar-icon {
+            width: 24px;
+        }
+    }
+
+    
+}
