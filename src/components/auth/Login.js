@@ -1,20 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
+import { useForm } from '../../hooks/useForm';
+import { useDispatch } from 'react-redux'
+import { login } from '../../actions/login'
 
 
 export const Login = () => {
+
+    const dispatch = useDispatch();
+
+    const [formValues, handleInputChange ] = useForm({
+        email: '',
+        password: 123456
+    });
+
+    const {email, password} = formValues;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(login(123456, 'Felix'));
+    }
+
     return (
         <div>
             <h4 className="auth__title">Signup</h4>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <p className='label'>Email</p>
                 <div className='input-container'>
-                    <input className="auth__input" type="text" placeholder="example@correo.com" name="email" autoComplete="off"/>
+                    <input className="auth__input" type="text" placeholder="example@correo.com" name="email" autoComplete="off" value={email} onChange={handleInputChange}/>
                 </div>                
                 <p className='label'>Password</p>
                 <div className='input-container'>
-                    <input className="auth__input" type="password" placeholder="" name="password" />
+                    <input className="auth__input" type="password" placeholder="" name="password" value={password} onChange={handleInputChange}/>
                     <FaEye className='showHide-icon'/>
                 </div>
                 
