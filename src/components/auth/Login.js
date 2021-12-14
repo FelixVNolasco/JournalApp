@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from 'react-redux'
-import { login } from '../../actions/login'
+import { loginWithEmailPassword, startGoogleLogin } from '../../actions/auth'
 
 
 export const Login = () => {
@@ -11,7 +11,7 @@ export const Login = () => {
     const dispatch = useDispatch();
 
     const [formValues, handleInputChange ] = useForm({
-        email: '',
+        email: 'felixvnolasco@hotmail.com',
         password: 123456
     });
 
@@ -19,7 +19,7 @@ export const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(123456, 'Felix'));
+        dispatch(loginWithEmailPassword(email, password));
     }
 
     return (
@@ -44,13 +44,10 @@ export const Login = () => {
                 <p>Or you can login with:</p>
             </div>
             <div className="auth_social-networks">
-                <div className="google-btn">
+                <div className="google-btn" onClick={ startGoogleLogin() }>
                     <div className="google-icon-wrapper">
                         <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                     </div>
-                    <p className="btn-text">
-                        <b>Sign in with google</b>
-                    </p>
                 </div>
                 <div className='newAccount-container'>
                     <div className="account_title">You don't have an account?</div>
