@@ -2,7 +2,6 @@ import { createUserWithEmailAndPassword, getAuth, signInWithPopup, updateProfile
 import { googleAuthProvider } from "../firebase/firebase-config";
 import { types } from "../types/types";
 
-
 export const loginWithEmailPassword = (email, password) => {
   return (dispatch) => {
     setTimeout(() => {
@@ -10,6 +9,12 @@ export const loginWithEmailPassword = (email, password) => {
     }, 3500);
   };
 };
+
+
+/* 
+  TODO: 
+  FIX LOGIN WITH GOOGLE 
+*/
 
 export const startGoogleLogin = () =>{
   return (dispatch) =>{
