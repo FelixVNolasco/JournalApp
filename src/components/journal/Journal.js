@@ -1,5 +1,5 @@
 import React from "react";
-import { EmptyContent } from "./EmptyContent";
+// import { EmptyContent } from "./EmptyContent";
 import { Sidebar } from "./Sidebar";
 import { NotesScreen } from '../notes/NotesScreen'
 export const Journal = () => {
@@ -8,8 +8,8 @@ export const Journal = () => {
       <Sidebar />
 
       <main>
-        <EmptyContent />
-        {/* <NotesScreen /> */}
+        {/* <EmptyContent /> */}
+        <NotesScreen />
       </main>
     </div>
   );

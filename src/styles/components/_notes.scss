@@ -14,3 +14,44 @@
     padding: 10px, 20px, 10px, 20px;
 
 }
+
+.notes__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+
+}
+
+.notes__title-input, .notes__textarea {
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.notes__title-input {
+    color: $dark-gray;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+ }
+
+ .notes__textarea { 
+     padding: 12px;
+     border: 2px solid lighten($color: $dark-gray, $amount: 20) ;
+     border-radius: 12px;
+     color: $dark-gray;
+     font: 1.2rem;
+     flex: 1 1 auto;
+     resize: none;
+     margin-bottom: 10px;
+ }
+
+ .notes__image {
+     img {
+         box-shadow: 5px 5px $dark-gray;
+         height: 150px;
+     }
+ }
