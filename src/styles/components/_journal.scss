@@ -143,6 +143,8 @@
 
     &:hover {
         transition: ease-in 200ms;
+        position: relative;
+        transform: translateY(-5px);
         box-shadow: 2px 6px 4px 0px rgba(0,0,0,0.50);
     }
     

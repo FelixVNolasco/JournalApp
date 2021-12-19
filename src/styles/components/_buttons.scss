@@ -25,6 +25,7 @@
     }
     &:hover {
         background-color: lighten($color: $primary, $amount: 4);
+        color: darken($color: $dark-gray, $amount: 10);
         transition: 300ms ease-out;
     }
 }
@@ -37,7 +38,7 @@
     border-radius: 2px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 
-    transition: box-shadow .3s ease;
+    transition: ease-out 200ms;
 
     .google-icon-wrapper {
         position: absolute;
@@ -56,7 +57,10 @@
         height: 18px;
     }
     &:hover {
+        transition: ease-in 300ms;
         box-shadow: -1px 4px 6px $dark-gray;
+        position: relative;
+        transform: translateY(-5px);
     }
     &:active {
         background: $button-active-blue;

@@ -7,6 +7,7 @@ import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm';
 import { setError, removeError } from '../../actions/ui'
+import { registerWithEmailPasswordName } from '../../actions/auth';
 
 export const Signup = () => {
 
@@ -76,7 +77,7 @@ export const Signup = () => {
                     <input className="auth__input" type="password" name="password2" value={password2} onChange={ handleInputChange } />
                 </div>                
                 <div className='btn-container'> 
-                    <button className="btn btn-primary" type="submit">Sign Up</button>
+                    <button className="btn btn-primary" type="submit" onClick={ registerWithEmailPasswordName(email, password, name) }>Sign Up</button>
                 </div>                
             </form>
             <div className='newAccount-container'>
