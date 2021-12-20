@@ -5,7 +5,6 @@ import { useForm } from '../../hooks/useForm';
 import { useDispatch } from 'react-redux'
 import { loginWithEmailPassword, startGoogleLogin } from '../../actions/auth'
 
-
 export const Login = () => {
 
     const dispatch = useDispatch();
@@ -20,6 +19,11 @@ export const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(loginWithEmailPassword(email, password));
+    }
+
+    const handleGoogleLoginSubmit = (e) => {
+        e.preventDefault();
+        dispatch(startGoogleLogin())
     }
 
     return (
@@ -53,7 +57,7 @@ export const Login = () => {
                     <p>Or you can login with:</p>
                 </div>
                 <div className="auth_social-networks">
-                    <div className="google-btn" onClick={ startGoogleLogin() }>
+                    <div className="google-btn" onClick={ handleGoogleLoginSubmit }>
                         <div className="google-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                         </div>

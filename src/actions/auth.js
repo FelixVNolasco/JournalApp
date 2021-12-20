@@ -10,18 +10,12 @@ export const loginWithEmailPassword = (email, password) => {
   };
 };
 
-
-/* 
-  TODO: 
-  FIX LOGIN WITH GOOGLE 
-*/
-
 export const startGoogleLogin = () =>{
   return (dispatch) => {
       const auth = getAuth();
       signInWithPopup(auth, googleAuthProvider)
           .then(({user}) =>{
-              // dispatch(login(user.uid, user.displayName))
+              dispatch(login(user.uid, user.displayName))
               console.log(user,user.uid, user.displayName);
           })
           .catch ( e => console.log(e));

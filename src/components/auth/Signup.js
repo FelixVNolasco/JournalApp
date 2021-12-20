@@ -13,8 +13,7 @@ export const Signup = () => {
 
     const dispatch = useDispatch();
     const {msgError} = useSelector(state => state.ui)
-
-    
+   
     const [formValues, handleInputChange ] = useForm({
         name: 'Felix Vega',
         email: 'felixvnolasco@hotmail.com',
@@ -24,12 +23,10 @@ export const Signup = () => {
     
     const {name, email, password, password2} = formValues;
 
-    const handleRegister = (e) => {
+    const handleRegisterWithEmailPassword = (e) => {
         e.preventDefault();
-        console.log(name, email, password, password2);
-
         if(isFormValid()) {
-            console.log('Formulario correcto');
+            dispatch(registerWithEmailPasswordName(email, password, name));
         }
     }
 
@@ -67,7 +64,7 @@ export const Signup = () => {
                             </div>
                         )
                     }
-                <form onSubmit={ handleRegister }>
+                <form onSubmit={ handleRegisterWithEmailPassword }>
                     <p className='label'>Name</p>
                     <div className='input-container'>
                         <input className="auth__input" type="text" placeholder="Felix Vega" name="name" autoComplete="off" value={name} onChange={ handleInputChange }/>
@@ -86,7 +83,7 @@ export const Signup = () => {
                         <input className="auth__input" type="password" name="password2" value={password2} onChange={ handleInputChange } />
                     </div>                
                     <div className='btn-container'> 
-                        <button className="btn btn-primary" type="submit" onClick={ registerWithEmailPasswordName(email, password, name) }>Sign Up</button>
+                        <button className="btn btn-primary" type="submit">Sign Up</button>
                     </div>                
                 </form>
                 <div className='newAccount-container'>
