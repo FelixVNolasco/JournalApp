@@ -147,13 +147,17 @@
 }
 
 .auth__alert-error {
-    background-color: red;
+    background-color: $danger;
     border-radius: 4px;
-    color: white;
+    color: $white;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
+
+    &::after {
+        transition: ease-in 300ms;
+    }
 }
 
 .account_title {

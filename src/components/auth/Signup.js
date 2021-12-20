@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,6 +15,8 @@ export const Signup = () => {
     const { msgError } = useSelector(state => state.ui);
     const { loading } = useSelector(state => state.ui);
 
+    const [showPassword, setshowPassword] = useState(false);
+
     const [formValues, handleInputChange ] = useForm({
         name: 'Felix Vega',
         email: 'felixvnolasco@hotmail.com',
@@ -29,6 +31,10 @@ export const Signup = () => {
         if(isFormValid()) {
             dispatch(registerWithEmailPasswordName(email, password, name));
         }
+    }
+    
+    const handleShowPassword = () => {
+        setshowPassword(!showPassword);
     }
 
     const isFormValid = () => {
@@ -57,7 +63,7 @@ export const Signup = () => {
             </div>
 
             <div className='form-container'>
-                <h4 className="auth__title">Sign In</h4>
+                <h4 className="auth__title">Sign Up</h4>
                     {
                         (msgError)  && (
                             <div className='auth__alert-error'>
@@ -72,12 +78,12 @@ export const Signup = () => {
                     </div>
                     <p className='label'>Email</p>
                     <div className='input-container'>
-                        <input className="auth__input" type="text" placeholder="example@correo.com" name="email" value={email} onChange={ handleInputChange } autoComplete="off"/>
+                        <input className="auth__input" type="text"  placeholder="example@correo.com" name="email" value={email} onChange={ handleInputChange } autoComplete="off"/>
                     </div>
                     <p className='label'>Password</p>
                     <div className='input-container'>
-                        <input className="auth__input" type="password" name="password" value={password} onChange={ handleInputChange } />
-                        <FaEye className='showHide-icon'/>
+                        <input className="auth__input" type={showPassword ? "text" : "password"}name="password" value={password} onChange={ handleInputChange } />
+                        <FaEye className='showHide-icon' onClick={ handleShowPassword }/>
                     </div>                
                     <p className='label'>Confirm your password</p>
                     <div className='input-container'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { useForm } from '../../hooks/useForm';
@@ -9,6 +9,13 @@ export const Login = () => {
 
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.ui);
+
+    const [showPassword, setshowPassword] = useState(false);
+
+
+    const handleShowPassword = () => {
+        setshowPassword(!showPassword);
+    }
 
     const [formValues, handleInputChange ] = useForm({
         email: 'felixvnolasco@hotmail.com',
@@ -46,8 +53,8 @@ export const Login = () => {
                     </div>                
                     <p className='label'>Password</p>
                     <div className='input-container'>
-                        <input className="auth__input" type="password" placeholder="" name="password" value={password} onChange={handleInputChange}/>
-                        <FaEye className='showHide-icon'/>
+                        <input className="auth__input" type={showPassword ? "text" : "password"} placeholder="" name="password" value={password} onChange={handleInputChange}/>
+                        <FaEye className='showHide-icon' onClick={ handleShowPassword }/>
                     </div>
                     
                     <div className='btn-container'> 
