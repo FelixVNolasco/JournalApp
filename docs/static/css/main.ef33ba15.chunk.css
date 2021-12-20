@@ -39,7 +39,7 @@ main {
   height: 600px;
 }
 .auth__main .signup-container {
-  background-image: url(./static/media/signupBackground.98c5bc7b.jpg);
+  background-image: url(../media/signupBackground.98c5bc7b.jpg);
   object-fit: fill;
   border-radius: 8px;
   width: 680px;
@@ -56,7 +56,7 @@ main {
   justify-content: center;
 }
 .auth__main .login-container {
-  background-image: url(./static/media/loginBackground.db491c07.jpg);
+  background-image: url(../media/loginBackground.db491c07.jpg);
   object-fit: fill;
   border-radius: 8px;
   width: 680px;
