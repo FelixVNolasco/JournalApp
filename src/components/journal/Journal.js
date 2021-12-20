@@ -6,7 +6,6 @@ export const Journal = () => {
   return (
     <div className="journal__main-content">
       <Sidebar />
-
       <main>
         {/* <EmptyContent /> */}
         <NotesScreen />

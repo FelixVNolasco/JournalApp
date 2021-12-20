@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { useForm } from '../../hooks/useForm';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loginWithEmailPassword, startGoogleLogin } from '../../actions/auth'
 
 export const Login = () => {
 
     const dispatch = useDispatch();
+    const { loading } = useSelector(state => state.ui);
 
     const [formValues, handleInputChange ] = useForm({
         email: 'felixvnolasco@hotmail.com',
@@ -50,7 +51,7 @@ export const Login = () => {
                     </div>
                     
                     <div className='btn-container'> 
-                        <button className="btn btn-primary" type="submit">Sign In</button>
+                        <button className="btn btn-primary" type="submit" disabled={loading}>Sign In</button>
                     </div>                
                 </form>
                 <div className='optionContainer'>

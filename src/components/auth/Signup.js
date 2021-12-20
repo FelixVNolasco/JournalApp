@@ -12,8 +12,9 @@ import { registerWithEmailPasswordName } from '../../actions/auth';
 export const Signup = () => {
 
     const dispatch = useDispatch();
-    const {msgError} = useSelector(state => state.ui)
-   
+    const { msgError } = useSelector(state => state.ui);
+    const { loading } = useSelector(state => state.ui);
+
     const [formValues, handleInputChange ] = useForm({
         name: 'Felix Vega',
         email: 'felixvnolasco@hotmail.com',
@@ -83,7 +84,7 @@ export const Signup = () => {
                         <input className="auth__input" type="password" name="password2" value={password2} onChange={ handleInputChange } />
                     </div>                
                     <div className='btn-container'> 
-                        <button className="btn btn-primary" type="submit">Sign Up</button>
+                        <button className="btn btn-primary" type="submit" disabled={loading}>Sign Up</button>
                     </div>                
                 </form>
                 <div className='newAccount-container'>
