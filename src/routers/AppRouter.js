@@ -6,11 +6,16 @@ import {
     Route,
     Redirect
 } from "react-router-dom";
-import { Journal } from '../components/journal/Journal';
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import { AuthRouter } from './AuthRouter';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
-import { useDispatch } from 'react-redux';
+import { Journal } from '../components/journal/Journal';
 import { login } from '../actions/auth';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { useDispatch } from 'react-redux';
+import { setLoadingState } from '../actions/notes';
 
 export const AppRouter = () => {
     const [checking, setChecking] = useState(true);
@@ -19,10 +24,11 @@ export const AppRouter = () => {
 
     useEffect(() => {        
         const auth = getAuth();
-        onAuthStateChanged(auth, (user) =>{
+        onAuthStateChanged(auth, async (user) =>{
             if(user?.uid) {
                 dispatch(login(user.uid, user.displayName));
                 setIsLoggedIn(true);
+                dispatch(setLoadingState(user.uid));
             } else {
                 setIsLoggedIn(false);
             }
@@ -30,10 +36,16 @@ export const AppRouter = () => {
         })
     }, [dispatch, setChecking, setIsLoggedIn]);
 
-    if(checking) {
+    if(checking) {        
         return (
-            <h5>Espere un momento...</h5>
-        )        
+            <Loader
+              type="Puff"
+              color="#38939A"              
+              height={320}
+              width={320}
+              timeout={3000}
+            />          
+        );        
     }
 
     return (
