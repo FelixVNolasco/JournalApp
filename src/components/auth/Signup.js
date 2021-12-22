@@ -53,7 +53,7 @@ export const Signup = () => {
     }
 
     return (
-        <div className='form-inline'>
+        <div className='form-inline form-inline animate__animated animate__fadeIn'>
             <div className='signup-container'>
                 <div className="info-container">
                 <h2>Journal App</h2>

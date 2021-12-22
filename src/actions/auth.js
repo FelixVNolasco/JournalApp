@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 
 import { types } from "../types/types";
 import { finishLoading, startLoading } from "./loading";
+import { noteLogout } from "./notes";
 
 export const loginWithEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -71,5 +72,6 @@ export const LogoutAction = () => {
       const auth = getAuth();
       await signOut(auth);
       dispatch(logout());
+      dispatch(noteLogout());
   }
 }

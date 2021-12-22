@@ -10,9 +10,16 @@
     background-color: $dark-gray;
     color: $white;
     display: flex;
-    justify-content: center;
-    padding: 10px, 20px, 10px, 20px;
+    justify-content: space-between;
     font-size: 1.2rem;
+
+    .date {
+        padding: 4px;        
+    }
+    .actions {
+        font-size: 1.1rem;
+        padding: 4px;        
+    }
 }
 
 .notes__content {

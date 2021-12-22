@@ -20,7 +20,7 @@ export const JournalEntry = ({id, date, title, body, url}) => {
 
     const noteDate = moment();
     return (
-        <div className='journal__entry' onClick={ handleActiveNote }>
+        <div className='journal__entry form-inline animate__animated animate__fadeIn' onClick={ handleActiveNote }>
             {
                 url &&
                 <div className='journal__entry-picture'

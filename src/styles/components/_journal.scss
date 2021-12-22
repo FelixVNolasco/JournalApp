@@ -86,8 +86,7 @@
     }
 }
 
-.journal__entries {
-    cursor: pointer;
+.journal__entries {    
     flex: 1 1 auto;
     margin-top: 30px;
     overflow-y: scroll;
@@ -101,7 +100,7 @@
 }
 
 .journal__entry {
- 
+    cursor: pointer;
     background-color: $white;
     border-radius: 4px;
     color: darken($color: $dark-gray, $amount: 20);

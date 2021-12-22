@@ -35,7 +35,7 @@ export const Login = () => {
     }
 
     return (
-        <div className='form-inline'>
+        <div className='form-inline animate__animated animate__fadeIn'>
 
             <div className='login-container'>
                 <div className="info-container">
@@ -44,7 +44,7 @@ export const Login = () => {
                 </div>
             </div>
 
-            <div className='form-container'>
+            <div className='form-container '>
                 <h4 className="auth__title">Signup</h4>
                 <form onSubmit={ handleSubmit }>
                     <p className='label'>Email</p>

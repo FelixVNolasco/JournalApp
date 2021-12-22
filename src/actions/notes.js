@@ -2,8 +2,9 @@ import { db } from "../firebase/firebase-config";
 import { collection, addDoc } from "firebase/firestore";
 import { types } from "../types/types";
 import { loadNotes } from "../helpers/loadNotes";
-import { doc, updateDoc } from "@firebase/firestore"
+import { doc, updateDoc, deleteDoc } from "@firebase/firestore"
 import Swal from 'sweetalert2'
+import { fileUpload } from "../helpers/fileUpload";
 
 export const createNewNote = () => {
     return async (dispatch, getState) => {
@@ -19,10 +20,21 @@ export const createNewNote = () => {
         try {
             const document = await addDoc(collection(db, `${uid}`, 'journal/notes'), newNote);
             dispatch(activeNote(document.id, newNote));
-            // console.log('Documment written with ID:', document);
+            dispatch( addNewNote(document.id, newNote));
+            // console.log(document);
         } catch (error) {
             console.log(error);
         }        
+    }
+}
+
+export const addNewNote = (id, note) => {
+    return {
+        type: types.notesAddNew,
+        payload: {
+            id, 
+            ...note
+        }
     }
 }
 
@@ -81,5 +93,55 @@ export const refreshNote = (id, note) => {
                 ...note
             }
         }
+    }
+}
+
+export const startUploading = ( file ) => {
+    return async( dispatch, getState ) => {
+
+        const { active:activeNote } = getState().notes;
+
+        Swal.fire({
+            title: 'Uploading...',
+            text: 'Please wait...',
+            allowOutsideClick: false,
+            onBeforeOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        const fileUrl = await fileUpload( file );
+        console.log(fileUrl)
+
+        activeNote.url = fileUrl;        
+        dispatch( startSaveNote( activeNote ) )
+        
+        Swal.close();
+    }
+}
+
+
+export const startDeleteNote = ( id ) => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const noteRef = doc(db, `${uid}/journal/notes/${id}`)
+
+        await deleteDoc(noteRef);
+ 
+        dispatch(deleteNote(id));
+    }
+}
+
+export const deleteNote = (id) => {
+    return {
+        type: types.notesDelete,
+        payload: id
+    }    
+}
+
+
+export const noteLogout = () => {
+    return {
+        type: types.notesLogoutCleaning        
     }
 }
