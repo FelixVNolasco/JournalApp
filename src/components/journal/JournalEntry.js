@@ -1,14 +1,26 @@
 import React from 'react'
 import { FaCalendar } from "react-icons/fa";
 import moment from 'moment'
+import { useDispatch } from 'react-redux';
+import { activeNote } from '../../actions/notes';
 
 export const JournalEntry = ({id, date, title, body, url}) => {
 
     // console.log(id, date, title, body, url);
+    const dispatch = useDispatch();
+    
+    const handleActiveNote = () => {
+        dispatch(activeNote(id, {
+            date,
+            title,
+            body,
+            url
+        }));
+    }
+
     const noteDate = moment();
     return (
-        <div className='journal__entry'>
-
+        <div className='journal__entry' onClick={ handleActiveNote }>
             {
                 url &&
                 <div className='journal__entry-picture'
@@ -18,7 +30,6 @@ export const JournalEntry = ({id, date, title, body, url}) => {
                     }}
                 ></div>
             }
-
             <div className='journal__entry-body'>
                 <p className='journal__entry-title'>
                     { title }
