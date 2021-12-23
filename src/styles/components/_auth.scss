@@ -8,8 +8,8 @@
     width: 100vw;
 
     .form-inline {
-        display: inline-flex;
-        width: 1200px;
+        display: flex;
+        max-width: 1200px;
         height: 600px;
     }
 
@@ -63,7 +63,7 @@
         box-shadow: 4px 4px 4px 0px $dark-gray;
         border-radius: 12px;
         padding: 20px;
-        width: 1200px;
+        width: 62%;
 
         .auth__title {
             color: darken($color: $primary, $amount: 20);
@@ -173,5 +173,44 @@
         transition: 300ms ease-in;
         color: lighten($color: $primary, $amount: 2);
         text-decoration: underline;
+    }
+}
+
+@media (max-width: 1880px){
+ 
+    .signup-container, .login-container  {
+        display: none;
+    }   
+
+    .form-inline {
+        max-width: 800px;
+    }
+     
+}
+
+//TODO: DESIGN A SPECIFIC DESIGN TO MOBILE DEVICES
+
+@media (max-width: 640px) {
+
+    .optionContainer {
+        margin-top: 20px;
+    }
+
+    main {
+        .nothing__main-content {
+            display: none;
+        }
+        .notes__main-content {
+            width: 100vw;
+        }
+    }
+    
+    .journal__sidebar {
+        width: 0;
+        }
+        
+    .journal__main-content {
+        display: flex;
+        flex-direction: column;
     }
 }
