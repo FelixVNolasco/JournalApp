@@ -64,7 +64,7 @@
         border-radius: 12px;
         padding: 20px;
         width: 62%;
-
+        min-width: 300px;
         .auth__title {
             color: darken($color: $primary, $amount: 20);
             text-align: center;
