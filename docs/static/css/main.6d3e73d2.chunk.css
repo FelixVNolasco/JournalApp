@@ -34,8 +34,8 @@ main {
   width: 100vw;
 }
 .auth__main .form-inline {
-  display: inline-flex;
-  width: 1200px;
+  display: flex;
+  max-width: 1200px;
   height: 600px;
 }
 .auth__main .signup-container {
@@ -80,7 +80,7 @@ main {
   box-shadow: 4px 4px 4px 0 #252629;
   border-radius: 12px;
   padding: 20px;
-  width: 1200px;
+  width: 62%;
 }
 .auth__main .auth__box-container .auth__title {
   color: #1d4c4f;
@@ -174,6 +174,33 @@ main {
   transition: 0.3s ease-in;
   color: #3b9aa1;
   text-decoration: underline;
+}
+@media (max-width: 1880px) {
+  .login-container,
+  .signup-container {
+    display: none;
+  }
+  .form-inline {
+    max-width: 800px;
+  }
+}
+@media (max-width: 640px) {
+  .optionContainer {
+    margin-top: 20px;
+  }
+  main .nothing__main-content {
+    display: none;
+  }
+  main .notes__main-content {
+    width: 100vw;
+  }
+  .journal__sidebar {
+    width: 0;
+  }
+  .journal__main-content {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .btn {
   background-color: transparent;
@@ -458,4 +485,4 @@ main {
   box-shadow: 5px 5px #252629;
   height: 150px;
 }
-/*# sourceMappingURL=main.0eb04eb6.chunk.css.map */
+/*# sourceMappingURL=main.6d3e73d2.chunk.css.map */
