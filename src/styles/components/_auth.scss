@@ -206,9 +206,10 @@
     }
     
     .journal__sidebar {
-        padding: 0;
-        height: 100%;
-        width: 100%;        
+        padding-left: 0;
+        padding-right: 0;
+        height: 100% !important;
+        width: 100% !important;
     }
         
     .journal__main-content {
