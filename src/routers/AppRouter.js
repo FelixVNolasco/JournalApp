@@ -36,16 +36,18 @@ export const AppRouter = () => {
         })
     }, [dispatch, setChecking, setIsLoggedIn]);
 
-    if(checking) {        
+    if(checking) {
         return (
-            <Loader
-              type="Puff"
-              color="#38939A"              
-              height={320}
-              width={320}
-              timeout={3000}
-            />          
-        );        
+            <div className="auth__main">
+                <Loader
+                    type="Puff"
+                    color="#38939A"
+                    height={320}
+                    width={320}
+                    timeout={3000}
+                />
+            </div>
+        );
     }
 
     return (

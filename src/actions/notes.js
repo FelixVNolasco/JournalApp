@@ -145,3 +145,9 @@ export const noteLogout = () => {
         type: types.notesLogoutCleaning        
     }
 }
+
+export const noAction = () => {
+    return {
+        type: types.notesNoAction
+    }
+}

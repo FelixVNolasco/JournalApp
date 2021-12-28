@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
 import moment from 'moment'
 import { startSaveNote, startUploading } from '../../actions/notes'
+import { noAction } from '../../actions/notes';
 
 export const NotesAppBar = () => {
 
@@ -27,6 +28,9 @@ export const NotesAppBar = () => {
         }
     }
 
+    const handleNoAction = () => {
+        dispatch(noAction());
+    }
 
     return (
         <div className='notes__appbar'>
@@ -44,6 +48,7 @@ export const NotesAppBar = () => {
 
                 <button className='btn' onClick={ handlePictureClick } >Picture</button>
                 <button className='btn' onClick={ handleSaveNote }>Save</button>
+                <button className='btn' onClick={ handleNoAction }>Unselect</button>
             </div>            
         </div>
     )
