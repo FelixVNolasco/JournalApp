@@ -46,7 +46,7 @@
       "last 1 safari version"
     ]
   },
-  "engines" : { 
-    "node" : "16.13.1" 
+  "engines": {
+    "node": "16.13.1"
   }
 }
