@@ -1,9 +1,12 @@
+import { FaSave, FaImages, FaTimes } from "react-icons/fa";
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
 import moment from 'moment'
+
 import { startSaveNote, startUploading } from '../../actions/notes'
 import { noAction } from '../../actions/notes';
+
 
 export const NotesAppBar = () => {
 
@@ -46,10 +49,24 @@ export const NotesAppBar = () => {
                     onChange={ handleFileChange }
                 />
 
-                <button className='btn' onClick={ handlePictureClick } >Picture</button>
-                <button className='btn' onClick={ handleSaveNote }>Save</button>
-                <button className='btn' onClick={ handleNoAction }>Unselect</button>
+
+                <div className="button" onClick={ handlePictureClick }>
+                    <button className='btn'>Picture</button>
+                    <FaImages />
+                </div>
+
+                <div className="button" onClick={ handleSaveNote }> 
+                    <button className='btn'>Save</button>
+                    <FaSave />
+                </div>
+
+                <div className="button" onClick={ handleNoAction }> 
+                    <button className='btn'>Unselect</button>
+                    <FaTimes />
+                </div>
+                                
             </div>            
         </div>
     )
 }
+
