@@ -1,6 +1,6 @@
 # LIVE DEMO:
 
-https://warm-sierra-66987.herokuapp.com/auth/login
+https://journal-app-felixvnolasco.herokuapp.com/auth/login
 
 # Getting Started with Create React App
 
